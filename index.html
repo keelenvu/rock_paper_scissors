@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors TOP</title>
+
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <div class="container">
+        <div class="title">Rock Paper Scissors</div>
+        <div class="score-board">
+            <div class="score-label">
+                <div id="user-label" class="badge">YOU</div>
+                <span class="user-score">0</span>
+            </div>
+            <div class="score-label">
+                <div id="computer-label" class="badge">COMPUTER</div>
+                <span class="computer-score">0</span>
+            </div>
+        </div>  
+
+        <div class="outcome">
+            <p class="outcome-text">Pick rock, paper, or scissors!</p>
+        </div>
+
+        <div class="user-choices">
+            <div class="user-choice" id="rock">
+                <img src="./rock.png" alt="">
+            </div>
+            <div class="user-choice" id="paper">
+                <img src="./paper.png" alt="">
+            </div>
+            <div class="user-choice" id="scissors">
+                <img src="./scissors.png" alt="">
+            </div>
+        </div>
+
+        <div class="result">
+            <p></p>
+        </div>
+    </div>
+
+
+
+    
     <script src="script.js"></script>
 </body>
 </html>

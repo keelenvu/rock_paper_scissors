@@ -1,10 +1,12 @@
-//Psudeocode
-//Create a function for the computer to randomly return rock, paper or scissors.
-// Write a code which allows the player to input a selection
-//Allow player selection and computer selection to compete
-//win or lose conditional
-// 5 rounds
-//reports results
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+let score = document.querySelector('.result')
+let playerScoreLabel = document.querySelector('.user-score');
+let computerScoreLabel = document.querySelector('.computer-score');
+let outcome = document.querySelector('.outcome-text');
+
+
 
 let playerScore = 0;
 let computerScore = 0;
@@ -23,65 +25,89 @@ function computerPlay() {
     }
 }
 
-function playRound () {
+rock.addEventListener('click', function() {
+    playRound('rock');
+});
+
+paper.addEventListener('click', function() {
+    playRound('paper');
+});
+
+scissors.addEventListener('click', function() {
+    playRound('scissors');
+});
+
+function scores(sign1, sign2) {
+    score.innerHTML = `You selected ${sign1} and cpu selected ${sign2}`;
+}
+
+function win() {
+    playerScore++;
+    playerScoreLabel.innerHTML = playerScore;
+    outcome.innerHTML = 'Player wins!';
+}
+function lose() {
+    computerScore++;
+    computerScoreLabel.innerHTML = computerScore;
+    outcome.innerHTML = 'Computer wins!';
+}
+function tie() {
+    outcome.innerHTML = 'Its a tie!';
+}
+
+
+
+
+
+function playRound (playerSelection) {
     console.log('Player: ' + playerScore);
-    console.log('Computer: ' +computerScore);
+    console.log('Computer: ' + computerScore);
 
     let computerSelection = computerPlay();
-    let playerSelection = prompt('pick rock paper or scissors').toLowerCase();
-    
-    console.log('Player plays ' + playerSelection)
-    console.log('Computer plays ' + computerSelection)
+
+    scores(playerSelection, computerSelection);
     
     if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        console.log('Player wins!');
-        return playerScore++;
+        win();
     }
 
     else if (playerSelection === 'rock' && computerSelection === 'paper') {
-        console.log('Computer wins!');
-        return computerScore++;
+        lose();
+
     }
     
     else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        console.log('Player wins!');
-        return playerScore++;
+        win();
 
     }
 
     else if (playerSelection === 'paper' && computerSelection === 'scissors') {
         console.log('Computer wins!');
-        return computerScore++;
+        lose();
 
     }
     
     else if (playerSelection === 'scissors' && computerSelection === 'rock') {
         console.log('Player wins!');
-        return playerScore++;
+        win();
     }
 
     else if (playerSelection === 'scissors' && computerSelection === 'paper') {
         console.log('Computer wins!');
-        return computerScore++;
+        lose();
     }
 
     else {
-        console.log('It\s a tie!');
+        tie();
     }
 
 
     
 }
-    function game() {    
-    playRound();
-    playRound();
-    playRound();
-    playRound();
-    playRound();
-    }
+
 
     function result(score1, score2) {
-        console.log('Player has a score of ' + playerScore, 'and the computer has a score of ' + computerScore);
+
         if (score1 > score2) {
             console.log('Player wins the game!');
         }
@@ -92,22 +118,3 @@ function playRound () {
             console.log("The game ends in a tie!");
         }
     }
-
-
-
-game();
-result(playerScore, computerScore);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
